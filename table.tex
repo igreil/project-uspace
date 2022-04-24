@@ -1,0 +1,55 @@
+\documentclass{scrartcl}
+\usepackage{booktabs}
+
+\usepackage{pifont,xcolor}
+
+\usepackage{fontspec}
+\setmainfont[Scale=0.95, Ligatures={Required,Common,Contextual,TeX}]{TeX Gyre Schola} % Incredible font inside latex
+
+\begin{document}
+\def\checkno	{\!\!\llap{\textcolor{red}{~\textbf{\ding{55}}}}}
+\def\checkyes	{\!\!\llap{\textcolor{green}{~\textbf{\ding{51}}}}}
+
+\begin{table}
+\begin{tabular}{@{}lll@{}}
+\textbf{Unicode Canonical Name}						&	&	\textbf{\LaTeX ~Command} \\\midrule
+\checkyes ~\textsc{next line (nel)}					&	\texttt{U+0085}	&	\verb+\newline+\\
+\checkyes ~\textsc{no-break space (nbsp)}			&	\texttt{U+00A0}	&	\verb+~+\\
+%\checkno ~\textsc{ogham space mark}					&	\texttt{U+1680}	&	\hfill\verb+not implemented+\\
+%\checkno ~\textsc{mongolian vowel separator}		&	\texttt{U+180E}	&	\hfill\verb+not implemented+\\
+\checkyes ~\textsc{soft hyphen}						&	\texttt{U+00AD}	&	\verb+\discretionary{-}{}{}+\\
+\checkyes ~\textsc{en quad}							&	\texttt{U+2000}	&	\verb+\enskip+\\
+\checkyes ~\textsc{em quad}							&	\texttt{U+2001}	&	\verb+\quad+\\
+\checkyes ~\textsc{en space}						&	\texttt{U+2002}	&	\verb+\enskip+\\
+\checkyes ~\textsc{em space}						&	\texttt{U+2003}	&	\verb+\quad+\\
+\checkyes ~\textsc{three-per-em space}				&	\texttt{U+2004}	&	\verb+\hspace{.33333em}+\\
+\checkyes ~\textsc{four-per-em space}				&	\texttt{U+2005}	&	\verb+\hspace{.25em}+\\
+\checkyes ~\textsc{six-per-em space}				&	\texttt{U+2006}	&	\verb+\hspace{.16667em}+\\
+\checkyes ~\textsc{figure space} 					&	\texttt{U+2007}	&	\verb+\leavevmode\hphantom{0}+ \\
+\checkyes ~\textsc{punctuation space}				&	\texttt{U+2008}	&	\verb+\hspace{\fontcharwd\font `\.}+ \\
+\checkyes ~\textsc{thin space}						&	\texttt{U+2009}	&	\verb+\leavevmode\allowbreak\thinspace+ \\
+\checkyes ~\textsc{hair space} 						&	\texttt{U+200A}	&	\verb+\hspace{.08333em}+\\
+\checkyes ~\textsc{zero width space (zwsp)}			&	\texttt{U+200B}	&	\verb+\hspace{0pt}+\\
+\checkno ~\textsc{zero width non-joiner (zwnj)}		&	\texttt{U+200C}	&	\verb+\discretionary{}{}{\kern .03em}+\\
+\checkno ~\textsc{zero width joiner (zwj)}			&	\texttt{U+200D}	&	\verb+\leavevmode\relax+\\
+\checkyes ~\textsc{line separator}					&	\texttt{U+2028}	&	\verb+\newline+\\
+\checkyes ~\textsc{paragraph separator}				&	\texttt{U+2029}	&	\verb+\csname par\endcsname+\\
+\checkyes ~\textsc{narrow no-break space (nnbsp)}	&	\texttt{U+202F}	&	\verb+\leavevmode\thinspace+\\
+\checkno ~\textsc{medium mathematical space (mmsp)}	&	\texttt{U+205F}	&	\verb+\medspace+\\
+\checkno ~\textsc{word joiner}						&	\texttt{U+2060}	&	\verb+\nolinebreak+\\
+\checkno ~\textsc{ideographic space}				&	\texttt{U+3000}	&	\verb+\quad+\\
+\checkno ~\textsc{zero width no-break space (bom, zwnbsp)} & \texttt{U+FEFF} &\verb+\leavevmode\relax+\\
+\bottomrule
+\end{tabular}
+%\end{footnotesize}
+\end{table}
+
+
+\end{document}
+
+%\; 				.2777em 								\thickspace
+% https://jkorpela.fi/chars/spaces.html
+% Non-Breaking Hyphen	U+2011
+% Two-Em Dash			U+2E3A
+% Three-Em Dash			U+2E3B
+% utfsym

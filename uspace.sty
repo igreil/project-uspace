@@ -20,67 +20,82 @@ Unicode space characters.]
 
 \RequirePackage{newunicodechar}
 
-% zero width space
-\newunicodechar{​}{\hspace{0pt}}
+% NEXT LINE (NEL)										U+0085
+\newunicodechar{}{\newline}
 
-% narrow no-break space
-\newunicodechar{ }{\leavevmode\,}
-
-% non-breaking space
+% NO-BREAK SPACE (NBSP)									U+00A0
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
 \relax
 \else % if !pdftex
 \newunicodechar{ }{~}
 \fi
 
-% soft hyphen
+% SOFT HYPHEN 											U+00AD
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
 \relax
 \else % if !pdftex
-\newunicodechar{­}{\-}
+%\newunicodechar{­}{\-}
+\newunicodechar{­}{\discretionary{-}{}{}}
 \fi
 
-% en quad and en space
+% EN QUAD, EN SPACE										U+2000, U+2002
 \newunicodechar{ }{\enskip}
 \newunicodechar{ }{\enskip}
 
-% em quad and em space
+% EM QUAD, EM SPACE										U+2001, U+2003
 \newunicodechar{ }{\quad}
 \newunicodechar{ }{\quad}
 
-% three-per-em space
-\newunicodechar{ }{\hspace{0.33333em}}
+% THREE-PER-EM SPACE									U+2004
+\newunicodechar{ }{\hspace{.33333em}}
 
-% four-per-em space
-\newunicodechar{ }{\hspace{0.25em}}
+% FOUR-PER-EM SPACE										U+2005
+\newunicodechar{ }{\hspace{.25em}}
 
-% six-per-em space
-\newunicodechar{ }{\hspace{0.16667em}}
+% SIX-PER-EM SPACE										U+2006
+\newunicodechar{ }{\hspace{.16667em}}
 
-% figure space
+% FIGURE SPACE											U+2007
 \newunicodechar{ }{\leavevmode\hphantom{0}}
 
-% punctuation space
-\newunicodechar{ }{\hspace{\fontcharwd \font `\,}}
+% PUNCTUATION SPACE										U+2008
+\newunicodechar{ }{\hspace{\fontcharwd\font `\.}}
 
-% thin space
-\newunicodechar{ }{\leavevmode\allowbreak\,}
+% THIN SPACE											U+2009
+\newunicodechar{ }{\leavevmode\allowbreak\thinspace}
 
-% hair space
-\newunicodechar{ }{\hspace{0.08333em}}
+% HAIR SPACE											U+200A
+\newunicodechar{ }{\hspace{.08333em}}
 
-% Medium Mathematical Space (MMSP)
-\newunicodechar{ }{\hspace{0.22222em}}
+% ZERO WIDTH SPACE										U+200B
+\newunicodechar{​}{\hspace{0pt}}
 
-% line separator
+% ZERO WIDTH NON-JOINER (ZWNJ)							U+200C
+\newunicodechar{‌}{\discretionary{}{}{\kern .03em}}
+
+% ZERO WIDTH JOINER (ZWJ)								U+200D
+\newunicodechar{‍}{\leavevmode\relax}
+
+% LINE SEPARATOR										U+2028
 \newunicodechar{ }{\newline}
 
-% next line (NEL)
-\newunicodechar{}{\newline}
-
-% paragraph separator
+% PARAGRAPH SEPARATOR									U+2029
 \newunicodechar{ }{\csname par\endcsname}
 
+% NARROW NO-BREAK SPACE									U+202F
+\newunicodechar{ }{\leavevmode\thinspace}
+
+% MEDIUM MATHEMATICAL SPACE (MMSP)						U+205F
+\newunicodechar{ }{\medspace}
+
+% WORD JOINER (ZWJ)										U+2060
+\newunicodechar{⁠}{\nolinebreak}
+
+% IDEOGRAPHIC SPACE 									U+3000	TESTME!
+\newunicodechar{　}{\quad}
+
+% ZERO WIDTH NO-BREAK SPACE (BOM, ZWNBSP) 				U+FEFF
+\newunicodechar{﻿}{\leavevmode\relax}
 \endinput
 
 %%
